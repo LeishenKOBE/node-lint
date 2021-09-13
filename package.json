@@ -1,23 +1,84 @@
 {
-  "name": "node-lint",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LeishenKOBE/node-lint.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LeishenKOBE/node-lint/issues"
-  },
-  "homepage": "https://github.com/LeishenKOBE/node-lint#readme"
+    "name": "shi-node-lint",
+    "version": "0.0.1",
+    "description": "Don’t think, just write!",
+    "main": "lib/index.js",
+    "bin": "./bin/shi-node-lint.js",
+    "engines": {
+        "node": ">=8.0"
+    },
+    "scripts": {
+        "lint": "node ./bin/shi-node-lint.js",
+        "lint:fix": "node ./bin/shi-node-lint.js --fix",
+        "prepare": "npm run lint && npm run test"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,json,css}": [
+            "npm run lint:fix",
+            "git add"
+        ]
+    },
+    "files": [
+        "bin",
+        "lib",
+        ".eslintrc.js",
+        ".prettierrc.js"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/LeishenKOBE/node-lint.git"
+    },
+    "keywords": [],
+    "author": "shidongzhao",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/LeishenKOBE/node-lint/issues"
+    },
+    "homepage": "https://github.com/LeishenKOBE/node-lint#readme",
+    "dependencies": {
+        "@babel/core": "^7.12.3",
+        "@babel/eslint-parser": "^7.12.1",
+        "@babel/plugin-proposal-class-properties": "^7.12.1",
+        "@types/chalk": "^2.2.0",
+        "@types/commander": "^2.12.2",
+        "@types/debug": "^4.1.7",
+        "@types/eslint": "^7.28.0",
+        "@types/eslint-config-prettier": "^6.11.0",
+        "@types/eslint-plugin-prettier": "^3.1.0",
+        "@types/execa": "^2.0.0",
+        "@types/find-cache-dir": "^3.2.1",
+        "@types/globby": "^9.1.0",
+        "@types/is-ci": "^3.0.0",
+        "@types/lodash": "^4.14.172",
+        "@types/npm-which": "^3.0.1",
+        "chalk": "^2.1.0",
+        "commander": "^2.11.0",
+        "debug": "^3.0.1",
+        "eslint": "^7.12.1",
+        "eslint-config-prettier": "^6.14.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-prettier": "^3.1.4",
+        "execa": "^1.0.0",
+        "find-cache-dir": "^3.0.0",
+        "globby": "^8.0.1",
+        "ignore": "^3.3.5",
+        "is-ci": "^2.0.0",
+        "lodash": "^4.17.4",
+        "npm-which": "^3.0.1"
+    },
+    "devDependencies": {
+        "@types/prettier": "^2.3.2",
+        "husky": "^1.3.1",
+        "lint-staged": "^8.1.0",
+        "prettier": "^2.1.2"
+    },
+    "peerDependencies": {
+        "prettier": "^1.17.0 || ^2"
+    }
 }
