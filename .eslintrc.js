@@ -20,7 +20,5 @@ module.exports = {
     'node/prefer-global/url': ['error', 'always'],
     'node/prefer-promises/dns': 'error',
     'node/prefer-promises/fs': 'error',
-    'max-lines': [ERROR, {max: 500}],
-    'max-lines-per-function': [ERROR, {max: 200}],
   },
 }

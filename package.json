@@ -1,6 +1,6 @@
 {
   "name": "shi-node-lint",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Don’t think, just write!",
   "main": "lib/index.js",
   "bin": "./bin/shi-node-lint.js",
