@@ -4,14 +4,11 @@
   "description": "Don’t think, just write!",
   "main": "lib/index.js",
   "bin": "./bin/shi-node-lint.js",
+  "type": "commonjs",
   "engines": {
-    "node": ">=8.0"
+    "node": ">=8.10.0"
   },
-  "scripts": {
-    "lint": "node ./bin/shi-node-lint.js",
-    "lint:fix": "node ./bin/shi-node-lint.js --fix",
-    "prepare": "npm run lint && npm run test"
-  },
+  "scripts": {},
   "files": [
     "bin",
     "lib",
@@ -29,7 +26,10 @@
     "url": "https://github.com/LeishenKOBE/node-lint/issues"
   },
   "homepage": "https://github.com/LeishenKOBE/node-lint#readme",
-  "dependencies": {},
+  "dependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-node": "^11.1.0"
+  },
   "devDependencies": {},
   "peerDependencies": {
     "prettier": "^1.17.0 || ^2"

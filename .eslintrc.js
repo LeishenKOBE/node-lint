@@ -1,32 +1,25 @@
-const isCI = require('is-ci') || Boolean(process.env.BUILD_URL)
-const ERROR = 2
-
 module.exports = {
-  parser: '@babel/eslint-parser',
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-    requireConfigFile: false,
-  },
   env: {
     browser: false,
     node: true,
     es6: true,
   },
-
-  extends: [
-    'eslint:recommended',
-    'plugin:import/recommended',
-    !isCI && 'plugin:prettier/recommended',
-    'prettier',
-  ].filter(Boolean),
+  parserOptions: {
+    // Only ESLint 6.2.0 and later support ES2020.
+    ecmaVersion: 2020,
+  },
+  extends: ['eslint:recommended', 'plugin:node/recommended'],
 
   rules: {
-    // recommended rules
-    'prefer-const': ERROR,
-    'no-var': ERROR,
-    'no-console': ERROR,
-    'no-use-before-define': ['error', 'nofunc'],
+    'node/exports-style': ['error', 'module.exports'],
+    'node/file-extension-in-import': ['error', 'always'],
+    'node/prefer-global/buffer': ['error', 'always'],
+    'node/prefer-global/console': ['error', 'always'],
+    'node/prefer-global/process': ['error', 'always'],
+    'node/prefer-global/url-search-params': ['error', 'always'],
+    'node/prefer-global/url': ['error', 'always'],
+    'node/prefer-promises/dns': 'error',
+    'node/prefer-promises/fs': 'error',
     'max-lines': [ERROR, {max: 500}],
     'max-lines-per-function': [ERROR, {max: 200}],
   },
